@@ -1,24 +1,40 @@
 .movieList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding: 20px;
     list-style: none;
-    padding: 0;
   }
   
   .movieItem {
-    margin: 10px 0;
+    border: 1px solid #e0e0e0; 
+    border-radius: 10px;
+    overflow: hidden;
+    width: 220px;
+    background-color: #e4c0c0; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .movieItem:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
   
   .movieLink {
     text-decoration: none;
-    color: black;
+    color: inherit;
   }
   
   .moviePoster {
-    width: 200px;
+    width: 100%;
     height: auto;
   }
   
   .movieTitle {
-    font-size: 16px;
-    margin-top: 5px;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
   }
-  

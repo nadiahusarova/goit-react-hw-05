@@ -1,22 +1,46 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navigation from './components/Navigation/Navigation';
-import { Rings } from 'react-loader-spinner'; 
+import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import s from "./App.module.css";
+import { ThreeCircles } from "react-loader-spinner";
 
-const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviePage'));
-const MovieDetailsPage = lazy(() => import('./pages/MoviDetailsPage/MovieDetailsPage'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const MovieDetailsPage = lazy(() =>
+  import("./pages/MovieDetailsPage/MovieDetailsPage")
+);
+const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
+const MovieReviews = lazy(() =>
+  import("./components/MovieReviews/MovieReviews")
+);
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+const Navigation = lazy(() => import("./components/Navigation/Navigation"));
 
 function App() {
   return (
     <>
       <Navigation />
-      <Suspense fallback={<Rings color="#00BFFF" height={100} width={100} />}>
+      <Suspense
+        fallback={
+          <div className={s.loader}>
+            <ThreeCircles
+              visible={true}
+              height="50"
+              width="50"
+              color="rgb(9, 217, 186)"
+              ariaLabel="three-circles-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
+        }
+      >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

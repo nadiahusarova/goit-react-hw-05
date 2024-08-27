@@ -8,23 +8,22 @@ const HomePage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchMovies = async () => {
+    const fetchData = async () => {
       try {
         const data = await fetchTrendingMovies();
         setMovies(data);
       } catch (error) {
-        setError("Failed to load trending movies. Please try again later.");
+        setError("Error fetching trending movies. Please try again later.");
       }
     };
-
-    fetchMovies();
+    fetchData();
   }, []);
 
   return (
-    <section className={s.container}>
+    <div className={s.pageContainer}>
       <h2 className={s.title}>Trending Movies</h2>
       {error ? <p className={s.error}>{error}</p> : <MovieList movies={movies} />}
-    </section>
+    </div>
   );
 };
 

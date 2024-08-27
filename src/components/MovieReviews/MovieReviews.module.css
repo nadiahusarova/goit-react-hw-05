@@ -1,0 +1,56 @@
+.container {
+  background-color: #1c1c1e; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.review {
+  background-color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.author {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ff4747; 
+  margin-bottom: 10px;
+}
+
+.content {
+  font-size: 1rem;
+  color: #f0f0f0; 
+  line-height: 1.5;
+}
+
+.noReviews {
+  color: #ff4747;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error {
+  color: #ff4747; 
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}

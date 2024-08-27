@@ -1,27 +1,25 @@
-import { NavLink } from 'react-router-dom';
-import s from './Navigation.module.css';
+import { NavLink } from "react-router-dom";
+import s from "./Navigation.module.css";
 
 const Navigation = () => {
   return (
-    <header className={s.header}>
-      <div className={s.logo}>
-        <p>MovieSearchers</p>
-      </div>
+    <div className={s.navContainer}>
+      <div className={s.logo}>Movie Searchers</div>
       <nav>
-        <ul className={s.ul}>
+        <ul className={s.navList}>
           <li>
-            <NavLink className={s.navlink} to="/">
+            <NavLink className={s.navLink} to="/">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink className={s.navlink} to="/movies">
+            <NavLink className={s.navLink} to="/movies">
               Movies
             </NavLink>
           </li>
         </ul>
       </nav>
-    </header>
+    </div>
   );
 };
 
